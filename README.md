@@ -118,3 +118,133 @@ Entregas:
 CrearEntrega
 ObtenerEntregas
 EliminarEntrega
+
+# API
+
+Pruebas de la API con Postman
+Configuración de Postman
+Descargar e Instalar Postman:
+
+Descárgalo desde Postman e instálalo.
+Abrir Postman:
+
+Lanza la aplicación Postman.
+Probar Endpoints de la API
+Productos
+Obtener Lista de Productos
+
+Método: GET
+URL: http://localhost:5000/api/productos
+Descripción: Lista todos los productos.
+Crear un Nuevo Producto
+
+Método: POST
+
+URL: http://localhost:5000/api/productos
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "nombre": "Producto Ejemplo",
+  "descripcion": "Descripción del producto",
+  "precio": 50.00,
+  "stock": 10
+}
+Actualizar un Producto
+
+Método: PUT
+
+URL: http://localhost:5000/api/productos/{id}
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "nombre": "Producto Actualizado",
+  "descripcion": "Descripción actualizada",
+  "precio": 60.00,
+  "stock": 15
+}
+Eliminar un Producto
+
+Método: DELETE
+URL: http://localhost:5000/api/productos/{id}
+Pedidos
+Obtener Lista de Pedidos
+
+Método: GET
+URL: http://localhost:5000/api/pedidos
+Crear un Nuevo Pedido
+
+Método: POST
+
+URL: http://localhost:5000/api/pedidos
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "clienteID": 1,
+  "fechaPedido": "2024-09-10T10:00:00",
+  "estado": "Pendiente",
+  "fechaEntrega": "2024-09-15T10:00:00",
+  "total": 200.00
+}
+Actualizar un Pedido
+
+Método: PUT
+
+URL: http://localhost:5000/api/pedidos/{id}
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "estado": "Enviado"
+}
+Eliminar un Pedido
+
+Método: DELETE
+URL: http://localhost:5000/api/pedidos/{id}
+Entregas
+Obtener Lista de Entregas
+
+Método: GET
+URL: http://localhost:5000/api/entregas
+Crear una Nueva Entrega
+
+Método: POST
+
+URL: http://localhost:5000/api/entregas
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "pedidoID": 1,
+  "fechaEntrega": "2024-09-10T10:00:00",
+  "estado": "En tránsito"
+}
+Actualizar una Entrega
+
+Método: PUT
+
+URL: http://localhost:5000/api/entregas/{id}
+
+Body (JSON):
+
+json
+Copiar código
+{
+  "estado": "Completado"
+}
+Eliminar una Entrega
+
+Método: DELETE
+URL: http://localhost:5000/api/entregas/{id}
