@@ -35,7 +35,7 @@ Clona el repositorio:
 
 bash
 Copiar código
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/Fernando722/MercanciasJyC>
 cd mercanciasjyc-backend
 Restaura las dependencias:
 
