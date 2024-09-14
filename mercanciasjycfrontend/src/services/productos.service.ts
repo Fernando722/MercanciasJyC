@@ -1,19 +1,31 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Producto } from 'src/app/models/producto.model';
+// src/app/components/productos/productos.component.ts
 
-@Injectable({
-  providedIn: 'root'
+import { Component, OnInit } from '@angular/core';
+import { ProductosService } from 'src/services/productos.service'; // Ajusta la ruta si es necesario
+
+@Component({
+  selector: 'app-productos',
+  templateUrl: './productos.component.html',
+  styleUrls: ['./productos.component.scss']
 })
-export class ProductosService {
+export class ProductosService implements OnInit {
+  productos: any[] = []; // Define el tipo si tienes una interfaz para los productos
 
-  private apiUrl = `http://localhost:5045/api/productos`;
+  constructor(private productosService: ProductosService) { }
 
-  constructor(private http: HttpClient) { }
+  ngOnInit(): void {
+    this.getProductos();
+  }
 
-  getProductos(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getProductos(): void {
+    this.productosService.getProductos().subscribe(
+      (data: any[]) => {
+        this.productos = data;
+        console.log('Productos:', this.productos); // Para verificar en la consola
+      },
+      (error) => {
+        console.error('Error al obtener productos', error);
+      }
+    );
   }
 }
