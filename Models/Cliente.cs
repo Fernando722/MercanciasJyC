@@ -23,6 +23,6 @@ namespace MercanciasJyC.Models
         public  string Email { get; set; }
 
         // Relación uno a muchos: Un cliente tiene muchos pedidos
-        public  ICollection<Pedido> Pedidos { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
     }
 }

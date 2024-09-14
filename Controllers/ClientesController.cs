@@ -19,19 +19,25 @@ namespace MercanciasJyC.Controllers
 
         // GET: api/clientes
         [HttpGet]
-        public ActionResult<IEnumerable<Cliente>> Get()
+        public ActionResult<IEnumerable<Cliente>> GetClientes()
         {
-            // Verifica que se están recuperando clientes de la base de datos
             var clientes = _context.Clientes.ToList();
 
             if (clientes == null || !clientes.Any())
             {
-                // Retorna un código 404 si no hay clientes
+              
                 return NotFound("No se encontraron clientes.");
             }
-
-            // Retorna un código 200 con la lista de clientes
             return Ok(clientes);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
+        {
+            _context.Clientes.Add(cliente);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetClientes), new { id = cliente.ClienteID }, cliente);
         }
     }
 }
