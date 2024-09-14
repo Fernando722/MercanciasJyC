@@ -1,1 +1,39 @@
-<p>productos works!</p>
+<mat-toolbar color="primary">
+  Productos
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de Productos</mat-card-title>
+    <button mat-raised-button color="primary" (click)="openDialog()">Añadir Producto</button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-table [dataSource]="productos" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let producto"> {{producto.nombre}} </mat-cell>
+      </ng-container>
+
+      <!-- Otros encabezados y celdas aquí -->
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
+
+<!-- Agregar diálogo para crear/editar producto -->
+
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" required>
+    <mat-error *ngIf="productoForm.get('nombre').hasError('required')">
+      El nombre es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Otros campos aquí -->
+
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+</form>
