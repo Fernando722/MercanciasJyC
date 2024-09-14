@@ -9,7 +9,7 @@ import { Producto } from 'src/app/models/producto.model';
 })
 export class ProductosService {
 
-  private apiUrl = `${environment.apiUrl}/productos`;
+  private apiUrl = `http://localhost:5045/api/productos`;
 
   constructor(private http: HttpClient) { }
 
