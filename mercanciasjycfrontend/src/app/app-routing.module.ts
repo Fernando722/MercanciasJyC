@@ -2,10 +2,10 @@
 // src/app/app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductosComponent } from './productos/productos.component';
-import { PedidosComponent } from './pedidos/pedidos.component';
-import { EntregasComponent } from './entregas/entregas.component';
+import { HomeComponent } from 'app/components/home/home.component';
+import { ProductosComponent } from 'app/components/productos/productos.component';
+import { PedidosComponent } from 'app/components/pedidos/pedidos.component';
+import { EntregasComponent } from 'app/components/entregas/entregas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -8,12 +8,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
-    "baseUrl": "./src", // Agrega esta línea
-    "paths": { // Agrega esta sección si no está
+    "baseUrl": "./src",
+    "paths": { 
       "src/*": [ "*" ]
     },
     "outDir": "./dist/out-tsc",
-    "types": []
+    "types": [  "jest"  ]
   },
   "exclude": [
     "node_modules",

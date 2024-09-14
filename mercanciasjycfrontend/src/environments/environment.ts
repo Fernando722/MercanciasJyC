@@ -1,6 +1,6 @@
 // src/environments/environment.ts
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5045/api/clientes/'
+  apiUrl: 'http://localhost:4200/services/productos/'
 };
 
