@@ -1,1 +1,52 @@
-<p>pedidos works!</p>
+<!-- src/app/components/pedidos/pedidos.component.html -->
+
+<div class="container">
+  <h2>Lista de Pedidos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente ID</th>
+        <th>Fecha de Pedido</th>
+        <th>Estado</th>
+        <th>Fecha de Entrega</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>{{ pedido.pedidoID }}</td>
+        <td>{{ pedido.clienteID }}</td>
+        <td>{{ pedido.fechaPedido | date }}</td>
+        <td>{{ pedido.estado }}</td>
+        <td>{{ pedido.fechaEntrega | date }}</td>
+        <td>{{ pedido.total | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Crear Pedido</h2>
+  <form [formGroup]="pedidoForm" (ngSubmit)="createPedido()">
+    <div class="form-group">
+      <label for="clienteID">Cliente ID</label>
+      <input id="clienteID" formControlName="clienteID" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="fechaPedido">Fecha de Pedido</label>
+      <input id="fechaPedido" type="datetime-local" formControlName="fechaPedido" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <input id="estado" formControlName="estado" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="fechaEntrega">Fecha de Entrega</label>
+      <input id="fechaEntrega" type="datetime-local" formControlName="fechaEntrega" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="total">Total</label>
+      <input id="total" type="number" formControlName="total" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Pedido</button>
+  </form>
+</div>

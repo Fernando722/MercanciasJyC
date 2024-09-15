@@ -1,1 +1,40 @@
-<p>entregas works!</p>
+<!-- src/app/components/entregas/entregas.component.html -->
+
+<div class="container">
+  <h2>Lista de Entregas</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Pedido ID</th>
+        <th>Fecha de Entrega</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrega of entregas">
+        <td>{{ entrega.entregaID }}</td>
+        <td>{{ entrega.pedidoID }}</td>
+        <td>{{ entrega.fechaEntrega | date }}</td>
+        <td>{{ entrega.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Crear Entrega</h2>
+  <form [formGroup]="entregaForm" (ngSubmit)="createEntrega()">
+    <div class="form-group">
+      <label for="pedidoID">Pedido ID</label>
+      <input id="pedidoID" formControlName="pedidoID" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="fechaEntrega">Fecha de Entrega</label>
+      <input id="fechaEntrega" type="datetime-local" formControlName="fechaEntrega" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <input id="estado" formControlName="estado" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Entrega</button>
+  </form>
+</div>
